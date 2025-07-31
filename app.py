@@ -2,7 +2,15 @@ import streamlit as st
 import pandas as pd
 import requests
 import os
+# import os
+import subprocess
 
+# Ensure tmdbv3api is installed in case Streamlit fails
+try:
+    from tmdbv3api import TMDb, Movie
+except ModuleNotFoundError:
+    subprocess.check_call(["pip", "install", "tmdbv3api"])
+    from tmdbv3api import TMDb, Movie
 
 
 # from IPython.display import Image, display
