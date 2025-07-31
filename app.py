@@ -5,7 +5,7 @@ import os
 
 
 
-from IPython.display import Image, display
+# from IPython.display import Image, display
 from tmdbv3api import TMDb, Movie
 
 tmdb = TMDb()
@@ -50,10 +50,10 @@ def poster(movie_name):
 
 
 def recommend(movie):
-    movies_name=[]
-    movies_poster=[]
-    movie_index= new_df[new_df.title == movie].index[0]
-    values= sorted(enumerate(similarity[movie_index]), key=lambda x: x[1], reverse=True)[1:6]
+    movies_name = []
+    movies_poster = []
+    movie_index = new_df[new_df.title == movie].index[0]
+    values = sorted(enumerate(similarity[movie_index]), key=lambda x: x[1], reverse=True)[1:6]
     for i in values:
         movies_name.append(new_df.iloc[i[0]].title)
         movies_poster.append(poster(new_df.iloc[i[0]].title))
@@ -63,7 +63,6 @@ def recommend(movie):
         with col:
             st.image(movies_poster[idx])
             st.caption(movies_name[idx])
-    return
 
 
 option = st.selectbox(
